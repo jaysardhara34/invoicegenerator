@@ -314,8 +314,9 @@ class _UserscreenState extends State<Userscreen> {
                         qty: txtpqty.text,
                         price: txtpprice.text,
                         discount: txtpdisc.text);
-                    prod.add(pdct);
+
                     setState(() {
+                      prod.add(pdct);
                       txtpname = TextEditingController(text: '');
                       txtpqty = TextEditingController(text: '');
                       txtpprice = TextEditingController(text: '');
@@ -348,26 +349,33 @@ class _UserscreenState extends State<Userscreen> {
                   child: ListView.builder(
                       itemCount: prod.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(
-                            "${prod[index].Pdetail}",
-                            style:
-                                TextStyle(color: Color(0xffffffff), fontSize: 18),
-                          ),
-                          leading: Text(
-                            "${prod[index].qty}",
-                            style:
-                                TextStyle(color: Color(0xff989898), fontSize: 13),
-                          ),
-                          subtitle: Text(
-                            '${prod[index].discount}',
-                            style:
-                                TextStyle(color: Color(0xff707070), fontSize: 15),
-                          ),
-                          trailing: Text(
-                            '${prod[index].price}',
-                            style:
-                                TextStyle(color: Color(0xffffffff), fontSize: 15),
+                        return InkWell(
+                          onTap: (){
+                            setState(() {
+                              prod.removeAt(index);
+                            });
+                          },
+                          child: ListTile(
+                            title: Text(
+                              "${prod[index].Pdetail}",
+                              style: TextStyle(
+                                  color: Color(0xffffffff), fontSize: 18),
+                            ),
+                            leading: Text(
+                              "${prod[index].qty}",
+                              style: TextStyle(
+                                  color: Color(0xff989898), fontSize: 13),
+                            ),
+                            subtitle: Text(
+                              '${prod[index].discount}',
+                              style: TextStyle(
+                                  color: Color(0xff707070), fontSize: 15),
+                            ),
+                            trailing: Text(
+                              '${prod[index].price}',
+                              style: TextStyle(
+                                  color: Color(0xffffffff), fontSize: 15),
+                            ),
                           ),
                         );
                       }),

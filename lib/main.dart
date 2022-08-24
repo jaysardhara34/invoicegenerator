@@ -48,7 +48,7 @@ class _SplashscreenState extends State<Splashscreen> {
               SizedBox(
                 height: 30,
               ),
-              CircularProgressIndicator(color: Color(0xff000000),
+              CircularProgressIndicator(color: Color(0xff0059ff),
                 backgroundColor: Color(0xffbebebe),
                 value: i / 100,
               ),
