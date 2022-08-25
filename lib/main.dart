@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:invoicegenerator/screens/bill.dart';
 import 'package:invoicegenerator/screens/userscreen.dart';
 
 void main() {
@@ -10,6 +11,7 @@ void main() {
       routes: {
         "/": (context) => Splashscreen(),
         "user": (context) => Userscreen(),
+        "bill": (context) => Billscrreen(),
       },
     ),
   );
@@ -44,7 +46,7 @@ class _SplashscreenState extends State<Splashscreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(backgroundImage:AssetImage('assets/logo.png'),radius: 150,),
+              CircleAvatar(backgroundImage:AssetImage('assets/logo1.png'),radius: 150,),
               SizedBox(
                 height: 30,
               ),
@@ -56,7 +58,7 @@ class _SplashscreenState extends State<Splashscreen> {
                 height: 10,
               ),
               Text(
-                "$i%",
+                "Loading $i%",
                 style: TextStyle(color: Color(0xffffffff), fontSize: 16),
               ),
             ],

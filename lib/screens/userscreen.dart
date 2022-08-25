@@ -26,10 +26,11 @@ class _UserscreenState extends State<Userscreen> {
           title: Text('User Screen'),
           centerTitle: true,
           actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: Icon(Icons.more_vert_rounded),
-            )
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "bill");
+                },
+                icon: Icon(Icons.next_plan_outlined)),
           ],
           backgroundColor: Color(0xff3f3f3f),
         ),
@@ -350,7 +351,7 @@ class _UserscreenState extends State<Userscreen> {
                       itemCount: prod.length,
                       itemBuilder: (context, index) {
                         return InkWell(
-                          onTap: (){
+                          onTap: () {
                             setState(() {
                               prod.removeAt(index);
                             });
