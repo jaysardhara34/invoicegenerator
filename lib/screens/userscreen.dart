@@ -15,6 +15,8 @@ class _UserscreenState extends State<Userscreen> {
   TextEditingController txtpprice = TextEditingController();
   TextEditingController txtpdisc = TextEditingController();
 
+  int billAmount = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -155,40 +157,6 @@ class _UserscreenState extends State<Userscreen> {
                 SizedBox(
                   height: 20,
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Payment method :",
-                    style: TextStyle(color: Color(0xffffffff), fontSize: 18),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: SizedBox(
-                    width: 350,
-                    child: TextField(
-                      style: TextStyle(color: Color(0xffffffff)),
-                      decoration: InputDecoration(
-                        enabledBorder: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(12.0),
-                          borderSide: BorderSide(color: Colors.white54),
-                        ),
-                        focusedBorder: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(12.0),
-                          borderSide: BorderSide(color: Colors.white54),
-                        ),
-                        focusColor: Color(0xffffffff),
-                        hintText: 'Enter Paymentmathod',
-                        hintStyle: TextStyle(
-                          color: Color(0xff989898),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -205,103 +173,116 @@ class _UserscreenState extends State<Userscreen> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
+                Stack(
                   children: [
-                    Expanded(
-                      child: TextField(
-                        controller: txtpname,
-                        style: TextStyle(color: Color(0xffffffff)),
-                        decoration: InputDecoration(
-                          enabledBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(12.0),
-                            borderSide: BorderSide(color: Colors.white54),
-                          ),
-                          focusedBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(12.0),
-                            borderSide: BorderSide(color: Colors.white54),
-                          ),
-                          focusColor: Color(0xffffffff),
-                          hintText: 'Product name',
-                          hintStyle: TextStyle(
-                            color: Color(0xff989898),
+                    Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          height: 15,
+                          width: 200,
+                          child: ListTile(
+                          )
                           ),
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: txtpqty,
-                        keyboardType: TextInputType.numberWithOptions(),
-                        style: TextStyle(color: Color(0xffffffff)),
-                        decoration: InputDecoration(
-                          enabledBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(12.0),
-                            borderSide: BorderSide(color: Colors.white54),
-                          ),
-                          focusedBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(12.0),
-                            borderSide: BorderSide(color: Colors.white54),
-                          ),
-                          focusColor: Color(0xffffffff),
-                          hintText: 'Qty',
-                          hintStyle: TextStyle(
-                            color: Color(0xff989898),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            controller: txtpname,
+                            style: TextStyle(color: Color(0xffffffff)),
+                            decoration: InputDecoration(
+                              enabledBorder: new OutlineInputBorder(
+                                borderRadius: new BorderRadius.circular(12.0),
+                                borderSide: BorderSide(color: Colors.white54),
+                              ),
+                              focusedBorder: new OutlineInputBorder(
+                                borderRadius: new BorderRadius.circular(12.0),
+                                borderSide: BorderSide(color: Colors.white54),
+                              ),
+                              focusColor: Color(0xffffffff),
+                              hintText: 'Product name',
+                              hintStyle: TextStyle(
+                                color: Color(0xff989898),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: txtpprice,
-                        keyboardType: TextInputType.numberWithOptions(),
-                        style: TextStyle(color: Color(0xffffffff)),
-                        decoration: InputDecoration(
-                          enabledBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(12.0),
-                            borderSide: BorderSide(color: Colors.white54),
-                          ),
-                          focusedBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(12.0),
-                            borderSide: BorderSide(color: Colors.white54),
-                          ),
-                          focusColor: Color(0xffffffff),
-                          hintText: 'Price',
-                          hintStyle: TextStyle(
-                            color: Color(0xff989898),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: TextField(
+                            controller: txtpqty,
+                            keyboardType: TextInputType.numberWithOptions(),
+                            style: TextStyle(color: Color(0xffffffff)),
+                            decoration: InputDecoration(
+                              enabledBorder: new OutlineInputBorder(
+                                borderRadius: new BorderRadius.circular(12.0),
+                                borderSide: BorderSide(color: Colors.white54),
+                              ),
+                              focusedBorder: new OutlineInputBorder(
+                                borderRadius: new BorderRadius.circular(12.0),
+                                borderSide: BorderSide(color: Colors.white54),
+                              ),
+                              focusColor: Color(0xffffffff),
+                              hintText: 'Qty',
+                              hintStyle: TextStyle(
+                                color: Color(0xff989898),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: txtpdisc,
-                        keyboardType: TextInputType.numberWithOptions(),
-                        style: TextStyle(color: Color(0xffffffff)),
-                        decoration: InputDecoration(
-                          enabledBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(12.0),
-                            borderSide: BorderSide(color: Colors.white54),
-                          ),
-                          focusedBorder: new OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(12.0),
-                            borderSide: BorderSide(color: Colors.white54),
-                          ),
-                          focusColor: Color(0xffffffff),
-                          hintText: 'Discount',
-                          hintStyle: TextStyle(
-                            color: Color(0xff989898),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: TextField(
+                            controller: txtpprice,
+                            keyboardType: TextInputType.numberWithOptions(),
+                            style: TextStyle(color: Color(0xffffffff)),
+                            decoration: InputDecoration(
+                              enabledBorder: new OutlineInputBorder(
+                                borderRadius: new BorderRadius.circular(12.0),
+                                borderSide: BorderSide(color: Colors.white54),
+                              ),
+                              focusedBorder: new OutlineInputBorder(
+                                borderRadius: new BorderRadius.circular(12.0),
+                                borderSide: BorderSide(color: Colors.white54),
+                              ),
+                              focusColor: Color(0xffffffff),
+                              hintText: 'Price',
+                              hintStyle: TextStyle(
+                                color: Color(0xff989898),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: TextField(
+                            controller: txtpdisc,
+                            keyboardType: TextInputType.numberWithOptions(),
+                            style: TextStyle(color: Color(0xffffffff)),
+                            decoration: InputDecoration(
+                              enabledBorder: new OutlineInputBorder(
+                                borderRadius: new BorderRadius.circular(12.0),
+                                borderSide: BorderSide(color: Colors.white54),
+                              ),
+                              focusedBorder: new OutlineInputBorder(
+                                borderRadius: new BorderRadius.circular(12.0),
+                                borderSide: BorderSide(color: Colors.white54),
+                              ),
+                              focusColor: Color(0xffffffff),
+                              hintText: 'Discount',
+                              hintStyle: TextStyle(
+                                color: Color(0xff989898),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -323,6 +304,7 @@ class _UserscreenState extends State<Userscreen> {
                       txtpprice = TextEditingController(text: '');
                       txtpdisc = TextEditingController(text: '');
                     });
+                    total();
                   },
                   child: Container(
                     width: 70,
@@ -387,6 +369,20 @@ class _UserscreenState extends State<Userscreen> {
         ),
       ),
     );
+  }
+
+  void total() {
+    int totalAmount = 0;
+    int totalDisc = 0;
+
+    for (int i = 0; i < prod.length; i++) {
+      totalAmount =
+          (int.parse(prod[i].price!)) * (int.parse(prod[i].qty!)) + totalAmount;
+      totalDisc = int.parse(prod[i].discount!) + totalDisc;
+    }
+    setState(() {
+      billAmount = totalAmount - totalDisc;
+    });
   }
 }
 

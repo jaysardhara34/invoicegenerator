@@ -27,7 +27,7 @@ class _BillscrreenState extends State<Billscrreen> {
       ),
       body: Center(
         child: Container(
-          width: 250,
+          width: 350,
           height: double.infinity,
           color: Color(0xffffffff),
         ),
